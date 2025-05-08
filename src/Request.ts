@@ -72,6 +72,10 @@ export const header = (name: string, value: string) => (request: Request) => (
   new Request(request, {headers: pipe(request.headers, H.set(name, value))})
 );
 
+export const redirect = (mode: RequestRedirect) => (request: Request) => (
+  new Request(request, {redirect: mode})
+);
+
 export const credentials = (credentials: RequestCredentials) => (request: Request) => (
   new Request(request, {credentials})
 );
